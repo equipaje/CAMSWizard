@@ -29,6 +29,14 @@ namespace Export_To_EMR
 
         private void btn_send_Click(object sender, EventArgs e)
         {
+            //doc.Saved = true;
+            //doc.RoutingSlip.Subject = "CAMS Patient Documents";
+            //doc.RoutingSlip.AddRecipient(txt_email.Text);
+            doc.SendMail();
+        }
+
+        private void txt_email_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

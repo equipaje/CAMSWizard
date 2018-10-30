@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl_header = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
             this.lbl_field_description = new System.Windows.Forms.Label();
             this.btn_send = new System.Windows.Forms.Button();
             this.lbl_print_header = new System.Windows.Forms.Label();
@@ -46,13 +46,14 @@
             this.lbl_header.TabIndex = 0;
             this.lbl_header.Text = "Send or Print Patient Documents";
             // 
-            // textBox1
+            // txt_email
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(32, 141);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(333, 29);
-            this.textBox1.TabIndex = 1;
+            this.txt_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.Location = new System.Drawing.Point(32, 141);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(333, 29);
+            this.txt_email.TabIndex = 1;
+            this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // lbl_field_description
             // 
@@ -104,7 +105,7 @@
             this.Controls.Add(this.lbl_print_header);
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.lbl_field_description);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_email);
             this.Controls.Add(this.lbl_header);
             this.Name = "send_form_dialog";
             this.Text = "send_form_dialog";
@@ -116,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_header;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label lbl_field_description;
         private System.Windows.Forms.Button btn_send;
         private System.Windows.Forms.Label lbl_print_header;
