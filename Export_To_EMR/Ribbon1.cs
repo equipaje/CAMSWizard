@@ -19,6 +19,9 @@ namespace Export_To_EMR
 {
     public partial class Ribbon1
     {
+
+  
+
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
 
@@ -26,40 +29,19 @@ namespace Export_To_EMR
 
         private void btnExport_to_EMR_Click(object sender, RibbonControlEventArgs e)
         {
-            //This part exports the active doc to a PDF
-            Trace.WriteLine("You clicked the button");
+
             Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
-            Trace.WriteLine("You clicked the button");
-            /*
-            string sfileName_Document = doc.Name;
-            string sPath = doc.Path;
-            string sFullpath_pdf = sPath + "\\" + sfileName_Document + ".pdf";
-            doc.ExportAsFixedFormat(sFullpath_pdf, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
-            */
-
-            //This part is trying to get text from text boxes
-            /*
-            foreach (Word.Range sentence in doc.Sentences)
-            {
-                if (sentence.ShapeRange.Count > 0)
-                {
-                    foreach (Word.Shape shape in sentence.ShapeRange)
-                        if (shape.Type == Microsoft.Office.Core.MsoShapeType.msoTextBox)
-                            Trace.WriteLine(shape.TextFrame.TextRange.Text);
-                }
-                else
-                    Trace.WriteLine(sentence.Text);
-            }
-            */
-
-            //This part opens a dialog
-            dialog dialog = new dialog();
+            //This part opens the export to EMR dialog
+            EMR_export_dialog dialog = new EMR_export_dialog();
             dialog.Show();
 
+        }
 
-
-
-
+        private void btn_send_documents_Click(object sender, RibbonControlEventArgs e)
+        {
+            //This part opens the send dialog
+            send_form_dialog dialog = new send_form_dialog();
+            dialog.Show();
         }
     }
 }

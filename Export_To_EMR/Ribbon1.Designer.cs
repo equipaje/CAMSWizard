@@ -36,24 +36,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon1));
             this.tab1 = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
+            this.ribbongroup = this.Factory.CreateRibbonGroup();
             this.btnExport_to_EMR = this.Factory.CreateRibbonButton();
+            this.btn_send_documents = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
-            this.group1.SuspendLayout();
+            this.ribbongroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.ribbongroup);
             this.tab1.Label = "TabAddIns";
             this.tab1.Name = "tab1";
             // 
-            // group1
+            // ribbongroup
             // 
-            this.group1.Items.Add(this.btnExport_to_EMR);
-            this.group1.Label = "group1";
-            this.group1.Name = "group1";
+            this.ribbongroup.Items.Add(this.btn_send_documents);
+            this.ribbongroup.Items.Add(this.btnExport_to_EMR);
+            this.ribbongroup.Label = "CAMS";
+            this.ribbongroup.Name = "ribbongroup";
             // 
             // btnExport_to_EMR
             // 
@@ -64,6 +66,15 @@
             this.btnExport_to_EMR.ShowImage = true;
             this.btnExport_to_EMR.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnExport_to_EMR_Click);
             // 
+            // btn_send_documents
+            // 
+            this.btn_send_documents.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btn_send_documents.Image = ((System.Drawing.Image)(resources.GetObject("btn_send_documents.Image")));
+            this.btn_send_documents.Label = "Send Patient Documents";
+            this.btn_send_documents.Name = "btn_send_documents";
+            this.btn_send_documents.ShowImage = true;
+            this.btn_send_documents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn_send_documents_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -72,8 +83,8 @@
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            this.group1.ResumeLayout(false);
-            this.group1.PerformLayout();
+            this.ribbongroup.ResumeLayout(false);
+            this.ribbongroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -81,8 +92,9 @@
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup ribbongroup;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnExport_to_EMR;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btn_send_documents;
     }
 
     partial class ThisRibbonCollection

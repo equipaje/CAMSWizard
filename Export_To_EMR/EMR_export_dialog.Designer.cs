@@ -2,7 +2,7 @@
 
 namespace Export_To_EMR
 {
-    partial class dialog
+    partial class EMR_export_dialog
     {
         /// <summary>
         /// Required designer variable.
@@ -140,7 +140,6 @@ namespace Export_To_EMR
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 292);
-            this.Controls.Add(this.txtbx_EMR_Data);
             this.Controls.Add(this.lbl_step1);
             this.Controls.Add(this.lbl_step1_description);
             this.Controls.Add(this.btn_next);
@@ -149,6 +148,7 @@ namespace Export_To_EMR
             this.Controls.Add(this.lbl_step2_description);
             this.Controls.Add(this.lbl_step3);
             this.Controls.Add(this.lbl_step3_description);
+            this.Controls.Add(this.txtbx_EMR_Data);
             this.Name = "dialog";
             this.Text = "Export to EMR";
             this.Load += new System.EventHandler(this.EMR_export_dialog_Load);

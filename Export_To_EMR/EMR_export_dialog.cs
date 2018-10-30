@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-
 //----< Word Addin >---- 
 using System.IO;
 using Microsoft.Office.Tools.Ribbon;
@@ -18,12 +17,13 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace Export_To_EMR
 {
-    public partial class dialog : Form
+    public partial class EMR_export_dialog : Form
     {
         private Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+        private Word.Application WordApp = Globals.ThisAddIn.Application;
         private int currStep;
 
-        public dialog()
+        public EMR_export_dialog()
         {
             InitializeComponent();
         }
@@ -74,8 +74,14 @@ namespace Export_To_EMR
                 lbl_step2.Show();
                 lbl_step2_description.Show();
 
-                //increment the current step
-                currStep++;
+
+
+               
+                WordApp.CommandBars.ExecuteMso("Replay");
+
+
+                      //increment the current step
+                      currStep++;
             }
             else if(currStep == 2)
             {

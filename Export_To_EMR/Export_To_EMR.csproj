@@ -156,17 +156,17 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="dialog.cs">
+    <Compile Include="EMR_export_dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dialog.Designer.cs">
-      <DependentUpon>dialog.cs</DependentUpon>
+    <Compile Include="EMR_export_dialog.Designer.cs">
+      <DependentUpon>EMR_export_dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="dialog.resx">
-      <DependentUpon>dialog.cs</DependentUpon>
+    <EmbeddedResource Include="EMR_export_dialog.resx">
+      <DependentUpon>EMR_export_dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,6 +179,9 @@
     </Compile>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="send_form_dialog.resx">
+      <DependentUpon>send_form_dialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Export_To_EMR_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -194,6 +197,12 @@
     </Compile>
     <Compile Include="Ribbon1.Designer.cs">
       <DependentUpon>Ribbon1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="send_form_dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="send_form_dialog.Designer.cs">
+      <DependentUpon>send_form_dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
