@@ -53,7 +53,7 @@ namespace Export_To_EMR
             */
 
             //This part opens a dialog
-            step1_dialog dialog = new step1_dialog();
+            dialog dialog = new dialog();
             dialog.Show();
 
 
