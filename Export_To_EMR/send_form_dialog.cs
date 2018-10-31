@@ -51,8 +51,6 @@ namespace Export_To_EMR
             mail.Subject = "CAMS form";
             mail.Attachments.Add(sFullpath_pdf);
             mail.Display(true); //show the new Mail
-      
-            
 
         }
 

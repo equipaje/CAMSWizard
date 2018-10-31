@@ -75,14 +75,10 @@ namespace Export_To_EMR
                 lbl_step2.Show();
                 lbl_step2_description.Show();
 
+                WordApp.CommandBars.ExecuteMso("Replay"); //need to change this to the correct ribbon button once we get it
 
-
-               
-                WordApp.CommandBars.ExecuteMso("Replay");
-
-
-                      //increment the current step
-                      currStep++;
+                //increment the current step
+                currStep++;
             }
             else if(currStep == 2)
             {
@@ -124,28 +120,64 @@ namespace Export_To_EMR
         // returns a list of all of the strings that exist in text boxes in the current document
         private List<string> getPlainText()
         {
-            List<string> textList = new List<string>();
-
+            List<string> textList = new List<string>(); //here is where we store all of the responses from the form
+            
             foreach (Word.Range sentence in doc.Sentences)
             {
-                if (sentence.ShapeRange.Count > 0)
+                if (sentence.ShapeRange.Count > 0) //if there are shapes
                 {
                     foreach (Word.Shape shape in sentence.ShapeRange)
-                        if (shape.Type == Microsoft.Office.Core.MsoShapeType.msoTextBox)
+                    {
+                        if (shape.Type == Microsoft.Office.Core.MsoShapeType.msoTextBox) //if it's a textbox
                         {
-                            Trace.WriteLine(shape.TextFrame.TextRange.Text, shape.ZOrderPosition.ToString());
-                            textList.Insert(0, shape.TextFrame.TextRange.Text + "\n"); // prepend each object so that the document will print top to bottom
-                        }
+                            Word.ContentControls allContentControls = shape.TextFrame.TextRange.ContentControls; //get the collection of Content Controls in the shape
 
-                }
-                else
-                {
-                    //Trace.WriteLine(sentence.Text);
+                            /*
+                             * If there are check boxes, figure out which ones are checked and add that to the list
+                             */
+                            if (allContentControls.Count > 0) //if there are content controls
+                            {
+                                List<int> checkedBoxes = new List<int>(); //a list to store the numbers of the content controls that are checked
+                                int num = 1; //to track which content control we're on
+                                string finalString = "Rating: "; //this is what will be added to the text list
+
+                                foreach (Word.ContentControl cc in allContentControls)
+                                {
+                                    if(cc.Checked == true)
+                                    {
+                                        checkedBoxes.Add(num);
+                                        num++; 
+                                    }
+                                    else
+                                    {
+                                        num++;
+                                    }
+                                }
+
+                                foreach (int i in checkedBoxes)
+                                {
+                                    Trace.WriteLine(i + " is checked");
+                                    finalString = finalString + i;
+                                }
+
+                                textList.Insert(0, finalString + "/n");
+                            }
+
+                            //otherwise, just add the text in the textbox to the list
+                            else
+                            {
+                                textList.Insert(0, shape.TextFrame.TextRange.Text + "/n"); // prepend each object to the list so that the document will print top to bottom
+                            }
+                        }
+                    }
                 }
             }
 
             return textList;
         }
+
+
+
 
 
         private void label3_Click(object sender, EventArgs e)
