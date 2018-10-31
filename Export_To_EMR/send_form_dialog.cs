@@ -40,8 +40,9 @@ namespace Export_To_EMR
             Trace.WriteLine("Here's where the temp folder is: " + tempFolder.ToString());
 
             //store the document as a pdf in the temp location
-            string sfileName_Document = doc.Name;
-            string sFullpath_pdf = tempFolder + "\\" + sfileName_Document + ".pdf";
+            //string sfileName_Document = doc.Name;
+            string sfileName = doc.Name.Substring(0, doc.Name.Length - 5); //remove the .docx file extension
+            string sFullpath_pdf = tempFolder + "\\" + sfileName + ".pdf";
             doc.ExportAsFixedFormat(sFullpath_pdf, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: false); // you'll need a doc range here
 
             //create a new mail

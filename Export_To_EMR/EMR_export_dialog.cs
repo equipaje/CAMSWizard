@@ -38,9 +38,10 @@ namespace Export_To_EMR
         {
             Trace.WriteLine("Save PDF button clicked");
            
-            string sfileName_Document = doc.Name;
+            //string sfileName_Document = doc.Name;
+            string sfileName = doc.Name.Substring(0, doc.Name.Length - 5); //remove the .docx file extension
             string sPath = doc.Path;
-            string sFullpath_pdf = sPath + "\\" + sfileName_Document + ".pdf";
+            string sFullpath_pdf = sPath + "\\" + sfileName + ".pdf";
             doc.ExportAsFixedFormat(sFullpath_pdf, Word.WdExportFormat.wdExportFormatPDF, OpenAfterExport: true);
         }
 
