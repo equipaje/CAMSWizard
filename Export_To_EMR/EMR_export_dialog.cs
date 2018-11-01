@@ -21,7 +21,7 @@ namespace Export_To_EMR
     {
         private Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
         private Word.Application WordApp = Globals.ThisAddIn.Application;
-        private int currStep;
+        private int currStep; //which step of the UI we're on
 
         public EMR_export_dialog()
         {
@@ -35,9 +35,7 @@ namespace Export_To_EMR
 
         //clicking on the Save as PDF button
         private void btn_PDF_Click(object sender, EventArgs e)
-        {
-            Trace.WriteLine("Save PDF button clicked");
-           
+        {  
             //string sfileName_Document = doc.Name;
             string sfileName = doc.Name.Substring(0, doc.Name.Length - 5); //remove the .docx file extension
             string sPath = doc.Path;
@@ -157,16 +155,16 @@ namespace Export_To_EMR
                                 foreach (int i in checkedBoxes)
                                 {
                                     Trace.WriteLine(i + " is checked");
-                                    finalString = finalString + i;
+                                    finalString = finalString + i + " ";
                                 }
 
-                                textList.Insert(0, finalString + "/n");
+                                textList.Insert(0, finalString + "\n");
                             }
 
                             //otherwise, just add the text in the textbox to the list
                             else
                             {
-                                textList.Insert(0, shape.TextFrame.TextRange.Text + "/n"); // prepend each object to the list so that the document will print top to bottom
+                                textList.Insert(0, shape.TextFrame.TextRange.Text + "\n"); // prepend each object to the list so that the document will print top to bottom
                             }
                         }
                     }
@@ -175,11 +173,7 @@ namespace Export_To_EMR
 
             return textList;
         }
-
-
-
-
-
+         
         private void label3_Click(object sender, EventArgs e)
         {
 

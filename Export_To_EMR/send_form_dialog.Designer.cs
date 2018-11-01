@@ -33,7 +33,7 @@
             this.lbl_field_description = new System.Windows.Forms.Label();
             this.btn_send = new System.Windows.Forms.Button();
             this.lbl_print_header = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -86,22 +86,23 @@
             this.lbl_print_header.TabIndex = 4;
             this.lbl_print_header.Text = "Print documents";
             // 
-            // button1
+            // btn_print
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(34, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 68);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_print.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.Location = new System.Drawing.Point(34, 261);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(78, 68);
+            this.btn_print.TabIndex = 5;
+            this.btn_print.Text = "Print";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // send_form_dialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.lbl_print_header);
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.lbl_field_description);
@@ -121,6 +122,6 @@
         private System.Windows.Forms.Label lbl_field_description;
         private System.Windows.Forms.Button btn_send;
         private System.Windows.Forms.Label lbl_print_header;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_print;
     }
 }
