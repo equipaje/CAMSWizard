@@ -73,7 +73,7 @@ namespace Export_To_EMR
                 lbl_step2.Show();
                 lbl_step2_description.Show();
 
-                WordApp.CommandBars.ExecuteMso("Replay"); //need to change this to the correct ribbon button once we get it
+                WordApp.CommandBars.ExecuteMso("ConvertAllInkButton"); //change back to "Replay" if you don't have the right build
 
                 //increment the current step
                 currStep++;
